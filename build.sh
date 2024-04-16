@@ -12,7 +12,7 @@ export ANDROID_BUILD_TOP=$(pwd)
 export ANDROID_PRODUCT_OUT=${ANDROID_BUILD_TOP}/out/target/product/${TARGET_BOARD_PLATFORM}
 export OUT_DIR=${ANDROID_BUILD_TOP}/out/msm-kernel-${TARGET_BOARD_PLATFORM}
 
-# Create symbolic for external drivers
+# Create symlink for external drivers
 if [ ! -d "${ANDROID_BUILD_TOP}/kernel_platform/vendor" ]; then
   ln -s "${ANDROID_BUILD_TOP}/vendor" "${ANDROID_BUILD_TOP}/kernel_platform/vendor"
 fi
@@ -45,7 +45,6 @@ export EXT_MODULES="
   vendor/qcom/opensource/nfc-st-driver
   vendor/qcom/opensource/eSE-driver
   vendor/nxp/opensource/driver
-  vendor/oplus/kernel/explorer
 "
 
 export LTO=thin
