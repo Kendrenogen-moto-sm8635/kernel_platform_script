@@ -6,6 +6,7 @@ if [[ -z "${1}" ]]; then
 fi
 
 export TARGET_BOARD_PLATFORM="${1}"
+export MOTO_PRODUCT="${2}"
 export TARGET_BUILD_VARIANT=user
 
 export ANDROID_BUILD_TOP=$(pwd)
@@ -48,5 +49,7 @@ export EXT_MODULES="
 "
 
 export LTO=thin
+
+echo "mmi_product_name =" \"${MOTO_PRODUCT}\" > ./kernel_platform/msm-kernel/moto_product.bzl
 
 RECOMPILE_KERNEL=1 ./kernel_platform/build/android/prepare_vendor.sh ${TARGET_BOARD_PLATFORM} gki
